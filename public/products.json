@@ -1,0 +1,98 @@
+[
+  {
+    "id": "1",
+    "name": "Round Aluminum Balustrade Pipe 48mm",
+    "image": "/images/sample-product-1.jpg",
+    "category": "Pipes",
+    "tags": ["round", "48mm", "pipe", "balustrade", "aluminum", "tube"],
+    "description": "Standard 48mm round aluminum balustrade pipe. Suitable for residential and commercial applications. Available in 6m lengths."
+  },
+  {
+    "id": "2",
+    "name": "Square Aluminum Post 50x50mm",
+    "image": "/images/sample-product-2.jpg",
+    "category": "Posts",
+    "tags": ["square", "post", "50x50", "aluminum", "upright"],
+    "description": "Heavy-duty 50x50mm square aluminum post for balustrade systems. Wall thickness 2mm. Powder coated finish."
+  },
+  {
+    "id": "3",
+    "name": "Pipe End Cap 48mm",
+    "image": "/images/sample-product-3.jpg",
+    "category": "Accessories",
+    "tags": ["end cap", "cap", "48mm", "fitting", "accessory"],
+    "description": "Press-fit end cap for 48mm round aluminum pipes. Provides a clean, safe finish to exposed pipe ends."
+  },
+  {
+    "id": "4",
+    "name": "Base Plate Flange 50mm",
+    "image": "/images/sample-product-4.jpg",
+    "category": "Fittings",
+    "tags": ["base plate", "flange", "50mm", "floor mount", "fitting"],
+    "description": "Heavy-duty aluminum base plate flange for floor-mounting posts. Includes anchor bolt holes. Dimensions: 100x100mm."
+  },
+  {
+    "id": "5",
+    "name": "90° Elbow Connector 42mm",
+    "image": "/images/sample-product-5.jpg",
+    "category": "Connectors",
+    "tags": ["elbow", "90 degree", "connector", "42mm", "joint", "bend"],
+    "description": "Precision 90-degree elbow connector for 42mm aluminum pipe. Cast aluminum construction for durability."
+  },
+  {
+    "id": "6",
+    "name": "Inline Pipe Coupler 48mm",
+    "image": "/images/sample-product-6.jpg",
+    "category": "Connectors",
+    "tags": ["coupler", "sleeve", "inline", "48mm", "joiner", "connector"],
+    "description": "Internal inline coupler/sleeve for joining two 48mm pipes end-to-end. Stainless steel set screws included."
+  },
+  {
+    "id": "7",
+    "name": "T-Junction Connector 42mm",
+    "image": "/images/sample-product-7.jpg",
+    "category": "Connectors",
+    "tags": ["T-junction", "tee", "connector", "42mm", "three-way", "fitting"],
+    "description": "Three-way T-junction connector for 42mm round pipe. Ideal for mid-rail connections and branching configurations."
+  },
+  {
+    "id": "8",
+    "name": "Flat Bar Aluminum 40x3mm",
+    "image": "/images/sample-product-8.jpg",
+    "category": "Flat Bar",
+    "tags": ["flat bar", "40x3", "aluminum", "strip", "bar"],
+    "description": "Aluminum flat bar 40x3mm. Used for capping, trim, and structural support in balustrade systems. Available in 6m lengths."
+  },
+  {
+    "id": "9",
+    "name": "Round Aluminum Pipe 32mm",
+    "image": "/images/sample-product-1.jpg",
+    "category": "Pipes",
+    "tags": ["round", "32mm", "pipe", "handrail", "aluminum"],
+    "description": "32mm diameter round aluminum pipe. Commonly used for intermediate rails and handrails in balustrade systems."
+  },
+  {
+    "id": "10",
+    "name": "Wall Bracket Mount 48mm",
+    "image": "/images/sample-product-2.jpg",
+    "category": "Brackets",
+    "tags": ["wall bracket", "mount", "48mm", "wall fixing", "bracket"],
+    "description": "Wall-mounted pipe bracket for 48mm round pipe. Adjustable angle. Cast aluminum with stainless fixings."
+  },
+  {
+    "id": "11",
+    "name": "Post Cap Square 50x50mm",
+    "image": "/images/sample-product-3.jpg",
+    "category": "Accessories",
+    "tags": ["post cap", "square cap", "50x50", "top cap", "finish"],
+    "description": "Flat top cap for 50x50mm square aluminum posts. Snap-fit design. Provides clean, professional finish."
+  },
+  {
+    "id": "12",
+    "name": "Swivel Handrail Bracket 42mm",
+    "image": "/images/sample-product-5.jpg",
+    "category": "Brackets",
+    "tags": ["swivel", "handrail bracket", "42mm", "adjustable", "wall mount"],
+    "description": "Adjustable swivel bracket for 42mm handrail pipe. Adjusts ±45°. Suitable for staircase handrail installations."
+  }
+]

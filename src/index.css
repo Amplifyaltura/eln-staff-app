@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #070e1c;
+  --color-navy: #0a1628;
+  --color-card: #0f1e35;
+  --color-gold: #d4af37;
+  --color-gold-light: #f0d060;
+  --color-gold-dim: rgba(212,175,55,0.6);
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.03);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(212,175,55,0.25);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(212,175,55,0.45);
+}
+
+/* Hide scrollbar utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Gold shimmer animation */
+@keyframes goldShimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.gold-shimmer {
+  background: linear-gradient(90deg, #d4af37 0%, #f0d060 40%, #d4af37 60%, #b8960c 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: goldShimmer 4s linear infinite;
+}
+
+/* Input placeholder */
+input::placeholder,
+textarea::placeholder {
+  color: rgba(255,255,255,0.3);
+}
+
+select option {
+  background: #0a1628;
+  color: white;
+}
+
+/* Card hover glow */
+.product-card:hover {
+  box-shadow: 0 8px 40px rgba(212,175,55,0.12), 0 4px 16px rgba(0,0,0,0.4) !important;
+  border-color: rgba(212,175,55,0.3) !important;
+}
