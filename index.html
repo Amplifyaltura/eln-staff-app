@@ -44,7 +44,30 @@ window.addEventListener("message",function(e){if(!e.data||typeof e.data.type!=="
 loadRrweb();
 })();</script>
   <script data-arena-views="true">(function(){var isTop=false;try{isTop=window.self===window.top;}catch(e){}if(!isTop)return;window.__ARENA_META={generationId:"claude-sonnet-4-6",tournamentId:"5947d65c-e7e8-4407-a060-0ed42575ed8b"};var payload={tournamentId:"5947d65c-e7e8-4407-a060-0ed42575ed8b",modelId:"claude-sonnet-4-6"};try{var r=document.referrer;if(r){var u=new URL(r);payload.referrerDomain=u.hostname;}}catch(e){}try{var vid=null;try{vid=localStorage.getItem('arena_vid');}catch(e){}if(!vid){vid=typeof crypto!=="undefined"&&crypto.randomUUID?crypto.randomUUID():(Date.now().toString(36)+Math.random().toString(36).slice(2)).slice(0,32);try{localStorage.setItem('arena_vid',vid);}catch(e){}}if(vid)payload.viewerId=vid;}catch(e){}try{fetch("https://www.designarena.ai/api/agon/page-views",{"method":"POST","headers":{"Content-Type":"application/json"},"body":JSON.stringify(payload),"keepalive":true});}catch(e){}})();</script>
-</head>
+</head> <!-- Login Modal -->
+<div id="login-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(11,23,41,0.95); z-index:1000; align-items:center; justify-content:center;">
+  <div style="background:#112240; padding:40px; border-radius:16px; width:100%; max-width:420px; position:relative;">
+    <button onclick="closeLoginModal()" 
+            style="position:absolute; top:15px; right:20px; background:none; border:none; font-size:28px; color:#d4af37; cursor:pointer;">×</button>
+    
+    <h2 style="color:#d4af37; text-align:center; margin-bottom:25px;">ELN Balustrade Login</h2>
+    
+    <input type="text" id="username" placeholder="Username (e.g. emmanuel@eln)" 
+           style="width:100%; padding:14px; margin-bottom:15px; border-radius:8px; border:none; font-size:16px;">
+    
+    <input type="password" id="password" placeholder="Password" 
+           style="width:100%; padding:14px; margin-bottom:20px; border-radius:8px; border:none; font-size:16px;">
+    
+    <button onclick="login()" 
+            style="width:100%; padding:14px; background:#d4af37; color:#0b1729; font-weight:700; border:none; border-radius:8px; font-size:16px; cursor:pointer;">
+      Login
+    </button>
+    
+    <p style="text-align:center; margin-top:20px; color:#aaa; font-size:14px;">
+      Only Admin & Staff can login
+    </p>
+  </div>
+</div>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
