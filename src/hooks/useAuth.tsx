@@ -49,13 +49,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return { success: true };
   };
 
-  const signIn = login; // alias for older components
-  const signOut = async () => await supabase.auth.signOut();
+  const signIn = login;
+  
+  const logout = async () => {
+    const { error } = await supabase.auth.signOut();
+    if (error) console.error('Logout error:', error);
+  };
+
+  const signOut = logout;
 
   const value = {
     user,
     login,
-    logout: signOut,
+    logout,
     isAdmin,
     loading,
     signIn,
