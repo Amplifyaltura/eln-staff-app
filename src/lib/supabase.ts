@@ -5,5 +5,4 @@ const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYm
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
-// Changed back to boolean to fix build error
 export const isSupabaseConfigured = Boolean(supabaseUrl && supabaseAnonKey)
