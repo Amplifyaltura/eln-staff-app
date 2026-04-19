@@ -7,23 +7,22 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  
+
   const { login } = useAuth();
   const navigate = useNavigate();
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
     setLoading(true);
 
-    const result = await login(username, password);
+    const success = await login(username, password);
 
-    if (result.success) {
+    if (success) {
       navigate('/admin');
     } else {
-      setError(result.error || 'Invalid username or password');
+      setError('Invalid username or password');
     }
-    
     setLoading(false);
   };
 
@@ -34,28 +33,27 @@ export default function Login() {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      padding: '20px',
-      fontFamily: 'Inter, sans-serif'
+      padding: '20px'
     }}>
       <div style={{
         background: '#112240',
-        padding: '40px 30px',
+        padding: '50px 40px',
         borderRadius: '16px',
         width: '100%',
         maxWidth: '420px',
-        boxShadow: '0 20px 40px rgba(0,0,0,0.4)'
+        boxShadow: '0 20px 50px rgba(0,0,0,0.5)'
       }}>
         <h2 style={{ 
           color: '#d4af37', 
           textAlign: 'center',
-          marginBottom: '30px',
-          fontSize: '28px',
+          marginBottom: '35px',
+          fontSize: '32px',
           fontWeight: '700'
         }}>
           Admin Login
         </h2>
 
-        <form onSubmit={handleLogin}>
+        <form onSubmit={handleSubmit}>
           <input
             type="text"
             placeholder="Username (e.g. admin@eln)"
@@ -63,13 +61,13 @@ export default function Login() {
             onChange={(e) => setUsername(e.target.value)}
             style={{
               width: '100%',
-              padding: '14px',
+              padding: '16px',
               marginBottom: '15px',
               borderRadius: '8px',
               border: 'none',
-              fontSize: '16px',
               background: '#1e2a4a',
-              color: 'white'
+              color: 'white',
+              fontSize: '16px'
             }}
             required
           />
@@ -81,50 +79,40 @@ export default function Login() {
             onChange={(e) => setPassword(e.target.value)}
             style={{
               width: '100%',
-              padding: '14px',
+              padding: '16px',
               marginBottom: '20px',
               borderRadius: '8px',
               border: 'none',
-              fontSize: '16px',
               background: '#1e2a4a',
-              color: 'white'
+              color: 'white',
+              fontSize: '16px'
             }}
             required
           />
 
-          {error && (
-            <p style={{ color: '#ff6b6b', textAlign: 'center', marginBottom: '15px' }}>
-              {error}
-            </p>
-          )}
+          {error && <p style={{ color: '#ff6b6b', textAlign: 'center', marginBottom: '15px' }}>{error}</p>}
 
           <button
             type="submit"
             disabled={loading}
             style={{
               width: '100%',
-              padding: '14px',
+              padding: '16px',
               background: '#d4af37',
               color: '#0b1729',
               fontWeight: 'bold',
               border: 'none',
               borderRadius: '8px',
-              fontSize: '16px',
-              cursor: loading ? 'not-allowed' : 'pointer',
-              marginBottom: '15px'
+              fontSize: '17px',
+              cursor: loading ? 'not-allowed' : 'pointer'
             }}
           >
-            {loading ? 'Logging in...' : 'Login as Admin'}
+            {loading ? 'Logging in...' : 'Login'}
           </button>
         </form>
 
-        <p style={{ 
-          textAlign: 'center', 
-          marginTop: '20px', 
-          color: '#aaa', 
-          fontSize: '14px' 
-        }}>
-          Only Administrators can access this page
+        <p style={{ textAlign: 'center', marginTop: '25px', color: '#777', fontSize: '14px' }}>
+          Only administrators can access this area
         </p>
       </div>
     </div>
