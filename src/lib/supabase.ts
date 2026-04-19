@@ -1,16 +1,6 @@
-import { createClient } from '@supabase/supabase-js';
+import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL as string;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string;
+const supabaseUrl = 'https://gyijzqablwbkaryxdmvbs.supabase.co'
+const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd5aWp6cWFibHdia2FyeGRtdmJzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU5MzY4MDIsImV4cCI6MjA5MTUxMjgwMn0.ThjI05W-koR0b6aQwh-iMFrjL2YD-1Wn-d8g4dWmpk8'
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  console.warn('Supabase env vars not set — running in local-only mode.');
-}
-
-export const supabase = supabaseUrl && supabaseAnonKey
-  ? createClient(supabaseUrl, supabaseAnonKey, {
-      auth: { persistSession: true },
-    })
-  : null;
-
-export const isSupabaseConfigured = !!(supabaseUrl && supabaseAnonKey);
+export const supabase = createClient(supabaseUrl, supabaseAnonKey)
