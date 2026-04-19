@@ -1,6 +1,6 @@
-import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
+import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
 import { supabase } from '../lib/supabase';
-import { User } from '@supabase/supabase-js';
+import type { User } from '@supabase/supabase-js';
 
 type AuthContextType = {
   user: User | null;
@@ -8,6 +8,9 @@ type AuthContextType = {
   logout: () => Promise<void>;
   isAdmin: boolean;
   loading: boolean;
+  signIn: (email: string, password: string) => Promise<{ success: boolean; error?: string }>;
+  signOut: () => Promise<void>;
+  isConfigured: boolean;
 };
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -17,11 +20,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
 
+  const isConfigured = true;
+
   useEffect(() => {
     const getUser = async () => {
       const { data } = await supabase.auth.getUser();
       setUser(data.user);
-      setIsAdmin(data.user?.email?.includes('admin@eln') || false);
+      setIsAdmin(data.user?.email?.includes('admin') || false);
       setLoading(false);
     };
 
@@ -29,7 +34,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     const { data: listener } = supabase.auth.onAuthStateChange((_, session) => {
       setUser(session?.user || null);
-      setIsAdmin(session?.user?.email?.includes('admin@eln') || false);
+      setIsAdmin(session?.user?.email?.includes('admin') || false);
       setLoading(false);
     });
 
@@ -39,23 +44,27 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const login = async (email: string, password: string) => {
-    const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
-
-    if (error) {
-      return { success: false, error: error.message };
-    }
+    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    if (error) return { success: false, error: error.message };
     return { success: true };
   };
 
-  const logout = async () => {
-    await supabase.auth.signOut();
+  const signIn = login; // alias for older components
+  const signOut = async () => await supabase.auth.signOut();
+
+  const value = {
+    user,
+    login,
+    logout: signOut,
+    isAdmin,
+    loading,
+    signIn,
+    signOut,
+    isConfigured,
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, isAdmin, loading }}>
+    <AuthContext.Provider value={value}>
       {children}
     </AuthContext.Provider>
   );
