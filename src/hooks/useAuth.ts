@@ -21,19 +21,21 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const getUser = async () => {
       const { data } = await supabase.auth.getUser();
       setUser(data.user);
-      setIsAdmin(data.user?.email?.includes('admin') || false);
+      setIsAdmin(data.user?.email?.includes('admin@eln') || false);
       setLoading(false);
     };
 
     getUser();
 
-    const { data: listener } = supabase.auth.onAuthStateChange((event, session) => {
+    const { data: listener } = supabase.auth.onAuthStateChange((_, session) => {
       setUser(session?.user || null);
-      setIsAdmin(session?.user?.email?.includes('admin') || false);
+      setIsAdmin(session?.user?.email?.includes('admin@eln') || false);
       setLoading(false);
     });
 
-    return () => listener.subscription.unsubscribe();
+    return () => {
+      listener.subscription.unsubscribe();
+    };
   }, []);
 
   const login = async (email: string, password: string) => {
