@@ -8,4 +8,4 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey)
 // This is the missing function that was causing the build to fail
 export const isSupabaseConfigured = () => {
   return Boolean(supabaseUrl && supabaseAnonKey)
-}
+} 
